@@ -12,19 +12,6 @@ const styles = StyleSheet.create({
         fontWeight: '200',
         textAlign: 'center'
     },
-    headingColor: {
-        ...Platform.select({
-            android: {
-                color: 'yellow'
-            },
-            ios: {
-                color: 'red'
-            },
-            default: {
-                color: 'blue'
-            }
-        })
-    },
     listItem: {
         marginTop: '2%',
         borderRadius: '50%',
@@ -40,6 +27,10 @@ const styles = StyleSheet.create({
                 backgroundColor: '#b4bded'
             }
         })
+    },
+    class: {
+        fontSize: 40,
+        textAlign: 'center'
     }
 });
 
