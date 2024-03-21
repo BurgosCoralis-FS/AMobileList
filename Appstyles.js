@@ -2,11 +2,16 @@ import { Platform, StyleSheet } from "react-native";
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
+    header: {
+        display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#282c34',
+        
+    },
+    largeHeading: {
+        fontSize: 50,
+        color: '#fff',
+        fontWeight: '200'
     },
     headingColor: {
         ...Platform.select({
