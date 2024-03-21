@@ -6,18 +6,25 @@ import * as Network from 'expo-network';
 
 import styles from './Appstyles';
 
-import Header from './components/Header';
 import Home from './pages/Home';
+import Student from './pages/Student';
 
 const Stack = createNativeStackNavigator();
 
 
 export default function App() {
+  Network.getNetworkStateAsync()
+  .then(data => {
+    console.log('Network data', {data})
+  })
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home} options={{title: 'Home'}} />
+        <Stack.Screen name='Student' component={Student} />
       </Stack.Navigator>
+      <StatusBar hidden={true} />
     </NavigationContainer>
   );
   // return (
