@@ -7,11 +7,11 @@ import styles from '../Appstyles'
 
 export default function Header({ children, level }) {
     let [fontsLoaded] = useFonts({ CuteFont_400Regular })
-    const headingLevel = level ? level : 5
+    
     if (fontsLoaded) {
         return (
             <View style={styles.header}>
-                <Text accessibilityRole={`h${headingLevel}`} style={{
+                <Text accessibilityRole={'header'} style={{
                     fontFamily: 'CuteFont_400Regular',
                     fontSize: 60, 
                     color: 'yellow'}}>

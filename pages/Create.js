@@ -8,7 +8,8 @@ import styles from "../Appstyles"
 export default function Create({ navigation }) {
     const [values, setValues] = useState({
         title: '',
-        description: ''
+        description: '',
+        rating: '1'
     })
     const [error, setError] = useState(null)
 
@@ -20,7 +21,7 @@ export default function Create({ navigation }) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(values)
-            }).then(navigation.navigate('Home'))
+            }).then(navigation.navigate('Home', { ignore: true }))
         } catch(error) {
                 setError(error.message || "Unexpected Error")
         }
@@ -59,6 +60,16 @@ export default function Create({ navigation }) {
                     onChangeText={(text) => handleInputChanges('description', text)}
                     placeholder='Description' 
                     style={styles.input} />
+            </View>
+
+            <View>
+                <TextInput
+                value={values.rating}
+                onChangeText={(number) => handleInputChanges('rating', number)}
+                placeholder='Rating'
+                keyboardType="numeric"
+                inputMode="numeric"
+                style={styles.input} />
             </View>
 
             <View style={styles.button}>

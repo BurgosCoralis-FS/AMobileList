@@ -12,15 +12,20 @@ export default function Home({ navigation }) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    let ignore = false
-    useEffect(() => {
-        if(!ignore) {
-            getMovies()
-        }
-        return () => {
-            ignore = true
-        }
-    }, [])
+
+    useFocusEffect(
+        useCallback(() => {
+            let ignore = false
+
+            if(!ignore) {
+                getMovies()
+            }
+
+            return () => {
+                ignore = true
+            }
+        }, [])
+    )
 
     const getMovies = async () => {
         setLoading(true)
@@ -37,12 +42,6 @@ export default function Home({ navigation }) {
             setLoading(false)
         }
     }
-
-    useFocusEffect(
-        useCallback(() => {
-            getMovies()
-        }, [])
-    )
 
     return (
         <SafeAreaView style={styles.container}>
