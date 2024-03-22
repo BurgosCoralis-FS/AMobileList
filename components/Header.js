@@ -1,6 +1,6 @@
-import { Text, View } from 'react-native';
+import { Text, View } from 'react-native'
 
-import styles from '../Appstyles';
+import styles from '../Appstyles'
 
 export default function Header({ children, level }) {
     const headingLevel = level ? level : 5
@@ -8,5 +8,5 @@ export default function Header({ children, level }) {
         <View style={styles.header}>
         <Text accessibilityRole={`h${headingLevel}`} style={styles.largeHeading}>{children}</Text>
         </View>
-    );
+    )
 }

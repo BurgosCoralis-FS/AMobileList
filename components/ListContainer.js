@@ -1,10 +1,10 @@
-import { FlatList, SafeAreaView, View } from 'react-native';
-import ListItem from './ListItem';
+import { FlatList, SafeAreaView, View } from 'react-native'
+import ListItem from './ListItem'
 
 export default function ListContainer({ data, onPress }) {
     const renderItem = ({ item }) => (
         <ListItem onPress={onPress} studentId={item._id}>{ item.name }</ListItem>
-    );
+    )
 
     return (
         <SafeAreaView>
@@ -16,5 +16,5 @@ export default function ListContainer({ data, onPress }) {
                 />
             </View>
         </SafeAreaView>
-    );
+    )
 }

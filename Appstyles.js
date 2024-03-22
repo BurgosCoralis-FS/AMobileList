@@ -1,6 +1,11 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        rowGap: 20
+    },
     header: {
         display: 'flex',
         alignItems: 'center',
@@ -31,7 +36,21 @@ const styles = StyleSheet.create({
     class: {
         fontSize: 40,
         textAlign: 'center'
+    },
+    loading: {
+        marginTop: '50%'
+    },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+    button: {
+        padding: 10,
+        borderRadius: '50%',
+        backgroundColor: '#282c34'
     }
-});
+})
 
-export default styles;
+export default styles
