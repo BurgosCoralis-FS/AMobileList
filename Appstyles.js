@@ -33,9 +33,6 @@ const styles = StyleSheet.create({
             }
         })
     },
-    checkbox: {
-        backgroundColor: '#fff',
-    },
     loading: {
         marginTop: '50%'
     },
