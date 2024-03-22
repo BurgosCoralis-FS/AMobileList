@@ -1,9 +1,15 @@
 import { FlatList, SafeAreaView, View } from 'react-native'
 import ListItem from './ListItem'
 
-export default function ListContainer({ data, onPress }) {
+export default function ListContainer({ data, onPress, onCheckboxChange, isChecked }) {
     const renderItem = ({ item }) => (
-        <ListItem onPress={onPress} studentId={item._id}>{ item.name }</ListItem>
+        <ListItem 
+        onPress={onPress} 
+        movieId={item._id}
+        isChecked={item.completed}
+        onCheckboxChange={onCheckboxChange}>
+            { item.title }
+        </ListItem>
     )
 
     return (

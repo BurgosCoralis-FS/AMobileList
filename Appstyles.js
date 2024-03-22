@@ -4,20 +4,20 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        rowGap: 20
+        rowGap: 20,
+        backgroundColor: 'rgb(55 65 81)',
+        minHeight: '100%'
     },
     header: {
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#282c34'
-    },
-    largeHeading: {
-        fontSize: 50,
-        color: '#fff',
-        fontWeight: '200',
-        textAlign: 'center'
+        backgroundColor: 'rgb(152, 1, 14)'
     },
     listItem: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
         marginTop: '2%',
         borderRadius: '50%',
         padding: 10,
@@ -26,16 +26,15 @@ const styles = StyleSheet.create({
                 backgroundColor: '#c9b4ee'
             },
             ios: {
-                backgroundColor: '#b4edd2'
+                backgroundColor: 'rgb(152, 1, 14)'
             },
             default: {
                 backgroundColor: '#b4bded'
             }
         })
     },
-    class: {
-        fontSize: 40,
-        textAlign: 'center'
+    checkbox: {
+        backgroundColor: '#fff',
     },
     loading: {
         marginTop: '50%'
@@ -45,11 +44,13 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        backgroundColor: '#fff'
     },
     button: {
         padding: 10,
         borderRadius: '50%',
-        backgroundColor: '#282c34'
+        backgroundColor: '#fff',
+        marginTop: '2%'
     }
 })
 

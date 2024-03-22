@@ -8,61 +8,62 @@ import ListContainer from '../components/ListContainer'
 import styles from "../Appstyles"
 
 export default function Home({ navigation }) {
-    const [students, setStudents] = useState(null)
+    const [movies, setMovies] = useState(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
     let ignore = false
     useEffect(() => {
         if(!ignore) {
-            getStudents()
+            getMovies()
         }
         return () => {
             ignore = true
         }
     }, [])
 
-    const getStudents = async () => {
-		setLoading(true)
-		try {
-			await fetch(`https://crud-app-demo-64132ea5bbce.herokuapp.com/api/v1/students`)
-					.then(res => res.json())
-					.then(data => {
-						setStudents(data)
-					})
-		} catch(error) {
-			setError(error.message || "Unexpected Error")
-		} finally {
-			setLoading(false)
-		}
-	}
+    const getMovies = async () => {
+        setLoading(true)
+        try {
+            await fetch(`https://movie-app-deplyoment-5c3c54d11d03.herokuapp.com/api/v1/movies`)
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log({data})
+                        setMovies(data)
+                    })
+        } catch(error){
+            setError(error.message || 'Unexpected Error')
+        } finally {
+            setLoading(false)
+        }
+    }
 
     useFocusEffect(
         useCallback(() => {
-            getStudents()
+            getMovies()
         }, [])
     )
 
     return (
         <SafeAreaView style={styles.container}>
             <View>
-            <Header>Student List</Header>
+            <Header>Movie Tracker App</Header>
             </View>
             
-            <View >
+            <View>
                 { loading ? 
                 (<ActivityIndicator size="large" color="#995db5" style={styles.loading} />) 
                 : (<ListContainer 
-                data={students} 
-                onPress={(studentId) =>
-                    navigation.navigate('Student', { studentId })}/>)}
+                    data={movies} 
+                    onPress={(movieId) =>
+                        navigation.navigate('Movie', { movieId })}/>)}
             </View>
             
             <View style={styles.button}>
                 <Button 
-                title="Add a student" 
+                title="Add a movie" 
                 onPress={() => navigation.navigate('Create')}
-                color='#fff' />
+                color='black' />
             </View>
         </SafeAreaView>
     )

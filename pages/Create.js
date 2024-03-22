@@ -7,33 +7,32 @@ import styles from "../Appstyles"
 
 export default function Create({ navigation }) {
     const [values, setValues] = useState({
-		name: '',
-		class: ''
-	})
+        title: '',
+        description: ''
+    })
     const [error, setError] = useState(null)
 
-    const createStudent = async () => {
+    const addMovie = async () => {
         try {
-            await fetch(`https://crud-app-demo-64132ea5bbce.herokuapp.com/api/v1/students`, {
+            await fetch(`https://movie-app-deplyoment-5c3c54d11d03.herokuapp.com/api/v1/movies`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(values)
-            })
-            .then(setValues({ name: '', class: '' }))
-            .then(navigation.navigate('Home'))
+            }).then(navigation.navigate('Home'))
         } catch(error) {
-            setError(error.message || "Unexpected Error")
+                setError(error.message || "Unexpected Error")
         }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        createStudent()
+        addMovie()
     }
 
     const handleInputChanges = (key, value) => {
+
         setValues((values) => ({
             ...values,
             [key]: value
@@ -43,27 +42,27 @@ export default function Create({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View>
-                <Header>New Student</Header>
+                <Header>New Movie</Header>
             </View>
             
             <View>
                 <TextInput 
-                value={values.name} 
-                onChangeText={(text) => handleInputChanges('name', text)}
-                placeholder='Name' 
+                value={values.title} 
+                onChangeText={(text) => handleInputChanges('title', text)}
+                placeholder='Title' 
                 style={styles.input} />
             </View>
 
             <View>
                 <TextInput 
-                    value={values.class} 
-                    onChangeText={(text) => handleInputChanges('class', text)}
-                    placeholder='Class' 
+                    value={values.description} 
+                    onChangeText={(text) => handleInputChanges('description', text)}
+                    placeholder='Description' 
                     style={styles.input} />
             </View>
 
             <View style={styles.button}>
-                <Button title="Submit" onPress={handleSubmit} color='#fff' />
+                <Button title="Submit" onPress={handleSubmit} color='black' />
             </View>
         </SafeAreaView>
     )
