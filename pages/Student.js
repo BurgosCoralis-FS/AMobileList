@@ -5,7 +5,6 @@ import styles from "../Appstyles"
 
 import Header from '../components/Header'
 
-
 export default function Student({ route, navigation }) {
     const id = route.params.studentId
     const [loading, setLoading] = useState(false)
